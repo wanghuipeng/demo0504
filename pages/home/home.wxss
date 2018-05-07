@@ -1,0 +1,29 @@
+.banner,
+.banner image {
+    width: 750rpx;
+    height: 400rpx;
+}
+
+.newsflash {
+    background-color: #fff;
+    padding: 20rpx 30rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center
+}
+
+.newsflash .left image {
+    width: 104rpx;
+    height: 73rpx;
+}
+
+.newsflash .right {
+    width: 560rpx;
+    height: 100rpx;
+    overflow: hidden;
+}
+
+.newsflash .right .item {
+    padding-left: 40rpx;
+    font-size: 24rpx
+}

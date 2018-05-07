@@ -1,0 +1,29 @@
+<view class="container">
+  <view class="home">
+    <!-- banner -->
+    <swiper class="banner" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
+      <block wx:for="{{imgUrls}}">
+        <swiper-item class="item">
+          <image src="{{item}}"  />
+        </swiper-item>
+      </block>
+    </swiper>
+    <!-- 快报 -->
+    <view class="newsflash">
+      <view class="left">
+        <image src="{{newsflash}}"  />
+      </view>
+      <view class="right">
+        <swiper vertical="true" autoplay="true" interval="3000" duration="1000">
+          <block >
+              <swiper-item class="item" wx:for="{{uls}}" >
+                <view wx:for="{{item.data}}">
+                  <text>{{item.textContent}}</text><text>{{item.acount}}万元</text>
+                </view>
+              </swiper-item>
+          </block>
+        </swiper>
+      </view>
+    </view>
+  </view>
+</view>

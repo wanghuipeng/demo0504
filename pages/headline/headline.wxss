@@ -1,0 +1,5 @@
+.banner,
+.banner image {
+    width: 877.5rpx;
+    height: 390rpx;
+}

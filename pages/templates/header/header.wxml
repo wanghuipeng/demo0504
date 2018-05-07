@@ -1,0 +1,8 @@
+<template name="header">
+  <view class="header">
+    <text class="left">{{leftText}}</text>
+    <text class="title" wx:if="{{!isIcon}}">{{centerText}}</text>
+    <image class="image" wx:if="{{isIcon}}" src="{{src}}"></image>
+    <text class="right">{{rightText}}</text>
+  </view>
+</template>

@@ -1,0 +1,5 @@
+<view class="container">
+  <view class="loan">
+    <text>贷款</text>
+  </view>
+</view>

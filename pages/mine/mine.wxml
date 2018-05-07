@@ -1,0 +1,5 @@
+<view class="container">
+  <view class="mine">
+    <text>我的</text>
+  </view>
+</view>
