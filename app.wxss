@@ -13,3 +13,15 @@ page {
     padding: 0;
     box-sizing: border-box;
 }
+
+.orange {
+    color: #ff5900;
+}
+
+.orange1 {
+    color: #f3a049;
+}
+
+.blue {
+    color: #007eff;
+}

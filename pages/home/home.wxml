@@ -1,10 +1,10 @@
 <view class="container">
   <view class="home">
     <!-- banner -->
-    <swiper class="banner" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
+    <swiper class="banner" indicator-dots="true" autoplay="false" interval="3000" duration="1000">
       <block wx:for="{{imgUrls}}">
         <swiper-item class="item">
-          <image src="{{item}}"  />
+          <image src="{{item.bannerImgUrl}}"  />
         </swiper-item>
       </block>
     </swiper>
@@ -17,13 +17,118 @@
         <swiper vertical="true" autoplay="true" interval="3000" duration="1000">
           <block >
               <swiper-item class="item" wx:for="{{uls}}" >
-                <view wx:for="{{item.data}}">
-                  <text>{{item.textContent}}</text><text>{{item.acount}}万元</text>
+                <view wx:for="{{item.data}}" >
+                  <text><text class="dot"></text>{{item.textContent}}</text><text><text class="orange">{{item.amount}}</text>万元</text>
                 </view>
               </swiper-item>
           </block>
         </swiper>
       </view>
     </view>
+    <!-- 立即申请 -->
+    <view class="applyForm">
+      <text class="title"><text class="medal">房金云</text>房金云在手，银行贷款无忧！</text>
+      <!-- slider -->
+      <view class="section slider">
+        <text class="title"><text class="orange">{{sliderNum}}</text>万</text>
+        <view class="body-view" >
+          <text class="left">1</text>
+          <slider bindchange="sliderChange" bindchanging="sliderChange" selected-color="#ffa414" backgroundColor="#f0f0f0" block-size="15" block-color="#ffa414" value="502" min="1" max="1000" />
+          <text class="right">1000</text>
+        </view>
+      </view>
+
+      <button class="apply" bindtap="apply">立即申请</button>
+
+      <view class="mess">
+        <view class="item">
+          <text>额度高</text><text class="orange1">{{loanQuota}}</text>
+        </view>
+        <view class="item">
+          <text>利率低</text><text class="orange1">{{loanTerm}}</text>
+        </view>
+        <view class="item">
+          <text>放款快</text><text class="orange1">{{monthlyRate}}</text>
+        </view>
+      </view>
+    </view>
+    <!-- 热门贷款产品 -->
+    <view class="titleBar">
+        <view class="hot"><text class="title">热门贷款产品</text></view>
+    </view>
+    <view class="hotPoduct">
+      <block wx:for="{{product}}">
+        <view class="item" style="background-image:url('{{item.color}}')">
+          <text class="text1">{{item.productType}}</text>
+          <text class="text2">月利率</text>
+          <text class="text3">{{item.rate}}%</text>
+          <text class="text4">{{item.loanNumbers}}人已放款</text>
+        </view>
+      </block>
+    </view>
+    <!-- 我们的优势 -->
+    <view class="titleBar">
+      <view class="advantage"><text class="title">我们的优势</text></view>
+    </view>
+    <view class="ours">
+      <view class="item">
+        <image src="../../assets/images/ours1.png"></image>
+        <text class="title">正规贷款</text>
+        <text class="text">与中原银行等千家正规机构合作</text>
+      </view>
+      <view class="item">
+        <image src="../../assets/images/ours2.png"></image>
+        <text class="title">服务内容</text>
+        <text class="text">专属顾问随时在线全程服务</text>
+      </view>
+      <view class="item">
+        <image src="../../assets/images/ours3.png"></image>
+        <text class="title">三大承诺</text>
+        <text class="text">多方案解决，一次报价，不成功不收费</text>
+      </view>
+      <view class="item">
+        <image src="../../assets/images/ours4.png"></image>
+        <text class="title">关于我们</text>
+        <text class="text">中国互联网金融协会会员</text>
+      </view>
+    </view>
+    <!-- 底部 -->
+    <view class="footer">
+      <image src="../../assets/images/logo.png"></image>
+    </view>
+    <!-- 弹框 -->
+    <modal hidden="{{hidden}}" title="" confirm-text="立即申请" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm" no-cancel="{{nocancel}}">
+        <view class="navs">
+          <view class="nav">
+            <view class="{{selected==='0'?'active':'default'}}" data-current="0" bindtap="selected">无房一族</view>
+            <view class="{{selected==='1'?'active':'default'}}" data-current="1" bindtap="selected">有房一族</view>
+          </view>
+          <!-- 无房一族 -->
+          <view class="{{selected==='0'?'show':'hidden'}}">
+              <view class="form">
+                <view class="section">
+                  <input placeholder="输入您的真实姓名" auto-focus/>
+                </view>
+                <view class="section">
+                  <input placeholder="输入意向贷款金额" auto-focus/>
+                </view>
+                <view class="section">
+                  <input placeholder="请选择您的位置" auto-focus/>
+                </view>
+                <view class="section">
+                  <input placeholder="手机号码" auto-focus/>
+                </view>
+                <view class="section">
+                  <input placeholder="验证码" auto-focus/><text bindtap="getCode">获取验证码</text>
+                </view>
+                <view class="section">
+                  <icon type="success" size="20"/><text bindtap="link">已阅读<text class="blue">《房金云用户使用协议》</text></text>
+                </view>
+              </view>
+          </view>
+          <!-- 有房一族 -->
+          <view class="{{selected==='1'?'show':'hidden'}}"></view>
+        </view>
+    </modal>
   </view>
 </view>

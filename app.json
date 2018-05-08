@@ -14,8 +14,8 @@
         "navigationBarTextStyle": "black"
     },
     "tabBar": {
-        "backgroundColor": "#fff",
-        "borderStyle": "#fff",
+        "backgroundColor": "white",
+        "borderStyle": "black",
         "list": [{
             "pagePath": "pages/home/home",
             "iconPath": "assets/images/home.png",
