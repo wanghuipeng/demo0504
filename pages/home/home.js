@@ -14,7 +14,10 @@ Page({
         monthlyRate: '',
         product: [],
         hidden: true,
-        selected: '0'
+        selected: '0',
+        checked: false,
+        checkImg: ['../../assets/images/checked.png', '../../assets/images/check.png'],
+        checkCity: false
     },
     onLoad() {
         let datas = wx.getStorageSync('datas')
@@ -26,9 +29,9 @@ Page({
         } else {
             this.initScroll()
         }
-        this.initBanner()
-        this.initMess()
-        this.initProduct()
+        // this.initBanner()
+        // this.initMess()
+        // this.initProduct()
     },
     //banner
     initBanner() {
@@ -133,5 +136,23 @@ Page({
     // 跳转协议
     link() {
         console.log('跳转')
+    },
+    // 选择协议
+    checkIt() {
+        this.setData({
+            checked: !this.data.checked
+        })
+    },
+    // 选择城市
+    checkCity() {
+        if (this.data.checkCity) {
+            this.setData({
+                checkCity: false
+            })
+        } else {
+            this.setData({
+                checkCity: true
+            })
+        }
     }
 })

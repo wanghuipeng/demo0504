@@ -4,6 +4,7 @@
         "pages/loan/loan",
         "pages/headline/headline",
         "pages/mine/mine",
+        "pages/city/city",
         "pages/index/index",
         "pages/logs/logs"
     ],

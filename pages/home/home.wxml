@@ -103,32 +103,86 @@
             <view class="{{selected==='0'?'active':'default'}}" data-current="0" bindtap="selected">无房一族</view>
             <view class="{{selected==='1'?'active':'default'}}" data-current="1" bindtap="selected">有房一族</view>
           </view>
-          <!-- 无房一族 -->
+
+          <view class="form">
+            <view class="section">
+              <input placeholder="输入您的真实姓名" auto-focus/>
+            </view>
+            <view class="section">
+              <input placeholder="输入意向贷款金额" auto-focus value="{{sliderNum}}"/>
+            </view>
+            <view class="section location" bindtap="checkCity">
+              <image src="../../assets/images/location.png" />
+              <input placeholder="请选择您的位置" auto-focus/>
+            </view>
+            <view class="section">
+              <input placeholder="手机号码" auto-focus/>
+            </view>
+            <view class="section">
+              <input placeholder="验证码" auto-focus/><text bindtap="getCode" class="getCode">获取验证码</text>
+            </view>
+            <view class="section check">
+              <image wx:if="{{checked}}" src="{{checkImg[0]}}" bindtap="checkIt" />
+              <image  wx:else src="{{checkImg[1]}}" bindtap="checkIt" />
+              <text class="text" bindtap="link">已阅读<text class="blue">《房金云用户使用协议》</text></text>
+            </view>
+          </view>
+        </view>
+          <!-- 
           <view class="{{selected==='0'?'show':'hidden'}}">
               <view class="form">
                 <view class="section">
                   <input placeholder="输入您的真实姓名" auto-focus/>
                 </view>
                 <view class="section">
-                  <input placeholder="输入意向贷款金额" auto-focus/>
+                  <input placeholder="输入意向贷款金额" auto-focus value="{{sliderNum}}"/>
                 </view>
-                <view class="section">
+                <view class="section location">
+                  <image src="../../assets/images/location.png" />
                   <input placeholder="请选择您的位置" auto-focus/>
                 </view>
                 <view class="section">
                   <input placeholder="手机号码" auto-focus/>
                 </view>
                 <view class="section">
-                  <input placeholder="验证码" auto-focus/><text bindtap="getCode">获取验证码</text>
+                  <input placeholder="验证码" auto-focus/><text bindtap="getCode" class="getCode">获取验证码</text>
                 </view>
-                <view class="section">
-                  <icon type="success" size="20"/><text bindtap="link">已阅读<text class="blue">《房金云用户使用协议》</text></text>
+                <view class="section check">
+                  <image wx:if="{{checked}}" src="{{checkImg[0]}}" bindtap="checkIt" />
+                  <image  wx:else src="{{checkImg[1]}}" bindtap="checkIt" />
+                  <text class="text" bindtap="link">已阅读<text class="blue">《房金云用户使用协议》</text></text>
                 </view>
               </view>
           </view>
-          <!-- 有房一族 -->
-          <view class="{{selected==='1'?'show':'hidden'}}"></view>
-        </view>
+
+          <view class="{{selected==='1'?'show':'hidden'}}">
+            <view class="form">
+                <view class="section">
+                  <input placeholder="输入您的真实姓名" auto-focus/>
+                </view>
+                <view class="section">
+                  <input placeholder="输入意向贷款金额" auto-focus value="{{sliderNum}}"/>
+                </view>
+                <view class="section location">
+                  <image src="../../assets/images/location.png" />
+                  <input placeholder="请选择您的位置" auto-focus/>
+                </view>
+                <view class="section">
+                  <input placeholder="手机号码" auto-focus/>
+                </view>
+                <view class="section">
+                  <input placeholder="验证码" auto-focus/><text bindtap="getCode" class="getCode">获取验证码</text>
+                </view>
+                <view class="section check">
+                  <image wx:if="{{checked}}" src="{{checkImg[0]}}" bindtap="checkIt" />
+                  <image  wx:else src="{{checkImg[1]}}" bindtap="checkIt" />
+                  <text class="text" bindtap="link">已阅读<text class="blue">《房金云用户使用协议》</text></text>
+                </view>
+              </view>
+          </view>
+        </view> -->
     </modal>
+    <!-- 选择城市 -->
+    <city-html class="city" wx:if="{{checkCity}}"></city-html>
   </view>
 </view>
