@@ -1,13 +1,18 @@
 // pages/demo/demo.js
-let City = require('../../utils/allcity.js');
+let City = require('../../utils/allcity.js')
+const app = getApp()
 
 Page({
-
     data: {
         city: City,
     },
     bindClick(e) {
         console.log(e.detail)
+        app.globalData.cityName = e.detail.name
+        console.log(app.globalData.cityName)
+        wx.navigateBack({
+            delta: 1
+        })
     },
     input(e) {
         this.value = e.detail.value

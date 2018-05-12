@@ -17,7 +17,6 @@ Page({
         selected: '0',
         checked: false,
         checkImg: ['../../assets/images/checked.png', '../../assets/images/check.png'],
-        checkCity: false
     },
     onLoad() {
         let datas = wx.getStorageSync('datas')
@@ -29,6 +28,7 @@ Page({
         } else {
             this.initScroll()
         }
+        console.log(app.globalData.cityName)
         // this.initBanner()
         // this.initMess()
         // this.initProduct()
@@ -145,14 +145,8 @@ Page({
     },
     // 选择城市
     checkCity() {
-        if (this.data.checkCity) {
-            this.setData({
-                checkCity: false
-            })
-        } else {
-            this.setData({
-                checkCity: true
-            })
-        }
+        wx.navigateTo({
+            url: '../city/city'
+        })
     }
 })
