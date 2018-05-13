@@ -8,8 +8,13 @@ Page({
     },
     bindClick(e) {
         console.log(e.detail)
-        app.globalData.cityName = e.detail.name
-        console.log(app.globalData.cityName)
+        var pages = getCurrentPages()    //获取加载的页面( 页面栈 )
+    　　var currentPage = pages[pages.length - 1]  // 获取当前页面
+    　　var prevPage = pages[pages.length - 2]    //获取上一个页面
+    　　// 设置上一个页面的数据（可以修改，也可以新增）
+    　　prevPage.setData({
+    　　　　cityName: e.detail.name
+    　　})
         wx.navigateBack({
             delta: 1
         })

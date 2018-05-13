@@ -1,8 +1,7 @@
 //app.js
 App({
   globalData: {
-    userInfo: null,
-    cityName:'傻瓜还'
+    userInfo: null
   },
   onLaunch: function () {
     // 展示本地存储能力
