@@ -8,19 +8,20 @@ Page({
         ],
         newsflash: '../../assets/images/newsflash.png',
         uls: [],
-        name:'',
+        name: '',
         sliderNum: 502,
-        cityName:'',
-        tel:'',
-        password:'',
+        cityName: '',
+        tel: '',
+        password: '',
         loanQuota: '',
         loanTerm: '',
         monthlyRate: '',
         product: [],
-        hidden: true,
         selected: '0',
         checked: false,
         checkImg: ['../../assets/images/checked.png', '../../assets/images/check.png'],
+        shadeVisible: false,
+        modalVisible: false
     },
     onLoad() {
         // let datas = wx.getStorageSync('datas')
@@ -31,10 +32,10 @@ Page({
         // } else {
         //     this.initScroll()
         // }
-        // this.initScroll()
-        // this.initBanner()
-        // this.initMess()
-        // this.initProduct()
+        this.initScroll()
+        this.initBanner()
+        this.initMess()
+        this.initProduct()
     },
     //banner
     initBanner() {
@@ -108,7 +109,8 @@ Page({
     },
     apply() {
         this.setData({
-            hidden: false
+            shadeVisible: true,
+            modalVisible: true
         })
     },
     // 标签页切换
@@ -125,25 +127,52 @@ Page({
     // 取消
     cancel() {
         this.setData({
-            hidden: true
+            shadeVisible: false,
+            modalVisible: false
         })
     },
     // 提交
     formSubmit(e) {
+        console.log(this.data.cityName)
         let that = e.detail.value
-        let {name,sliderNum,cityNamemtel,password} = that
-        console.log(that.name,that.sliderNum,that.cityName,that.tel,that.password)
-        if(that.name === ''){
-            console.log('请输入姓名')
-        }else if(that.sliderNum <= 0){
-            console.log('贷款金额不能小于0')
-        }else if(that.cityName === ''){
-            console.log('请选择城市')
-        }else if(that.tel === ''){
-            console.log('请输入手机号')
-        }else if(that.password === ''){
-            console.log('请输入验证码')
-        } 
+        let { name, sliderNum, cityName, tel, password } = that
+        console.log(that.name, that.sliderNum, that.cityName, that.tel, that.password)
+        if (that.name === '') {
+            wx.showToast({
+                title: '请输入姓名',
+                icon: 'none',
+                duration: 1000,
+                mask: true
+            })
+        } else if (that.sliderNum <= 0) {
+            wx.showToast({
+                title: '贷款金额不能小于0',
+                icon: 'none',
+                duration: 1000,
+                mask: true
+            })
+        } else if (that.cityName === '') {
+            wx.showToast({
+                title: '请选择城市',
+                icon: 'none',
+                duration: 1000,
+                mask: true
+            })
+        } else if (that.tel === '') {
+            wx.showToast({
+                title: '请输入手机号',
+                icon: 'none',
+                duration: 1000,
+                mask: true
+            })
+        } else if (that.password === '') {
+            wx.showToast({
+                title: '请输入验证码',
+                icon: 'none',
+                duration: 1000,
+                mask: true
+            })
+        }
     },
     // 获取验证码
     getCode() {

@@ -333,7 +333,7 @@
 }
 
 .form .section {
-    margin-top: 30rpx;
+    margin-top: 40rpx;
     position: relative;
 }
 
@@ -396,4 +396,34 @@
     width: 100%;
     z-index: 10000;
     background-color: #fff;
+}
+
+.modal {
+    background-color: #fff;
+    width: 80%;
+    position: fixed;
+    z-index: 300;
+    left: 50%;
+    top: 50%;
+    margin-left: -40%;
+    margin-top: -57%;
+    padding: 30rpx;
+    padding-bottom: 100rpx;
+    box-sizing: border-box;
+}
+
+.modal .btn-groups {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.modal .btn-groups button {
+    border: none;
+    height: 60rpx;
+    line-height: 60rpx;
+    font-size: 34rpx;
+    width: 50%;
+    display: inline-block;
 }
