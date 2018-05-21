@@ -411,7 +411,7 @@
     padding: 30rpx;
     padding-bottom: 100rpx;
     box-sizing: border-box;
-    border-radius: 12px;
+    border-radius: 10px;
 }
 
 .modal .btn-groups {
