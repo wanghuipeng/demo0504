@@ -1,6 +1,8 @@
 //获取应用实例
 const fetch = require('../../utils/api.js')
+
 const app = getApp()
+var interval = null //倒计时函数
 Page({
     data: {
         imgUrls: [
@@ -21,7 +23,12 @@ Page({
         checked: false,
         checkImg: ['../../assets/images/checked.png', '../../assets/images/check.png'],
         shadeVisible: false,
-        modalVisible: false
+        modalVisible: false,
+        date: '请选择日期',
+        fun_id: 2,
+        time: '获取验证码', //倒计时 
+        currentTime: 60,
+        disabled: false
     },
     onLoad() {
         // let datas = wx.getStorageSync('datas')
@@ -175,8 +182,30 @@ Page({
         }
     },
     // 获取验证码
-    getCode() {
-        console.log('获取验证码')
+    getCode: function(options) {
+        var that = this;
+        var currentTime = that.data.currentTime
+        interval = setInterval(function() {
+            currentTime--;
+            that.setData({
+                time: currentTime + '秒'
+            })
+            if (currentTime <= 0) {
+                clearInterval(interval)
+                that.setData({
+                    time: '重新获取',
+                    currentTime: 60,
+                    disabled: false
+                })
+            }
+        }, 1000)
+    },
+    getVerificationCode() {
+        this.getCode();
+        var that = this
+        that.setData({
+            disabled: true
+        })
     },
     // 跳转协议
     link() {

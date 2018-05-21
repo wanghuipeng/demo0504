@@ -339,12 +339,13 @@
 
 .form .section .getCode {
     position: absolute;
-    right: 30rpx;
+    right: -10rpx;
     font-size: 30rpx;
-    top: -81rpx;
+    top: -105rpx;
     height: 50rpx;
     z-index: 100;
     color: #007eff;
+    background-color: transparent
 }
 
 .form .section input {
@@ -410,6 +411,7 @@
     padding: 30rpx;
     padding-bottom: 100rpx;
     box-sizing: border-box;
+    border-radius: 12px;
 }
 
 .modal .btn-groups {
@@ -426,4 +428,27 @@
     font-size: 34rpx;
     width: 50%;
     display: inline-block;
+}
+
+
+/* 隐藏button自身的边框 */
+
+button[class="getCode"]::after {
+    border: 0;
+}
+
+.btn-groups {
+    border-top: 1px solid #eee
+}
+
+.btn-groups button::after {
+    border: 0;
+}
+
+.btn-groups button {
+    background-color: transparent
+}
+
+.btn-groups button:last-child {
+    border-left: 1px solid #eee
 }
